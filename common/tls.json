@@ -1,0 +1,500 @@
+{
+  "node": [
+    {
+      "lifecycle-state": "installed",
+      "name": [
+        {
+          "value": "Sunnyvale",
+          "value-name": "name"
+        },
+        {
+          "value": "degree",
+          "value-name": "node-type"
+        }
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "owned-node-edge-point": [
+        {
+          "lifecycle-state": "installed",
+          "name": "Sunnyvale;P=4101",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Sunnyvale;P=4101"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Sunnyvale;P=4102",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Sunnyvale;P=4102"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Sunnyvale;P=4103",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Sunnyvale;P=4103"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Sunnyvale;P=4104",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Sunnyvale;P=4104"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Sunnyvale;P=4105",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Sunnyvale;P=4105"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Sunnyvale;P=4106",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Sunnyvale;P=4106"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Sunnyvale;P=4107",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Sunnyvale;P=4107"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Sunnyvale;P=4108",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Sunnyvale;P=4108"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Sunnyvale;P=4109",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Sunnyvale;P=4109"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Sunnyvale;P=txlisbon",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "output",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Sunnyvale;P=txlisbon"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Sunnyvale;P=rxlisbon",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Sunnyvale;P=rxlisbon"
+        }
+      ],
+      "admin-state": "unlocked",
+      "uuid": "Sunnyvale"
+    },
+    {
+      "lifecycle-state": "installed",
+      "name": [
+        {
+          "value": "Lisbon",
+          "value-name": "name"
+        },
+        {
+          "value": "ila",
+          "value-name": "node-type"
+        }
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "owned-node-edge-point": [
+        {
+          "lifecycle-state": "installed",
+          "name": "Lisbon;P=rxsunny",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Lisbon;P=rxsunny"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Lisbon;P=txsunny",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "output",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Lisbon;P=txsunny"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Lisbon;P=rxblr",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Lisbon;P=rxblr"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Lisbon;P=txblr",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "output",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Lisbon;P=txblr"
+        }
+      ],
+      "admin-state": "unlocked",
+      "uuid": "Lisbon"
+    },
+    {
+      "lifecycle-state": "installed",
+      "name": [
+        {
+          "value": "Bangalore",
+          "value-name": "name"
+        },
+        {
+          "value": "ila",
+          "value-name": "node-type"
+        }
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "owned-node-edge-point": [
+        {
+          "lifecycle-state": "installed",
+          "name": "Bangalore;P=rxlisbon",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Bangalore;P=rxlisbon"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Bangalore;P=txlisbon",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "output",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Bangalore;P=txlisbon"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Bangalore;P=txshanghai",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "output",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Bangalore;P=txshanghai"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Bangalore;P=rxshanghai",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Bangalore;P=rxshanghai"
+        }
+      ],
+      "admin-state": "unlocked",
+      "uuid": "Bangalore"
+    },
+    {
+      "lifecycle-state": "installed",
+      "name": [
+        {
+          "value": "Shanghai",
+          "value-name": "name"
+        },
+        {
+          "value": "degree",
+          "value-name": "node-type"
+        }
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "owned-node-edge-point": [
+        {
+          "lifecycle-state": "installed",
+          "name": "Shanghai;P=4101",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Shanghai;P=4101"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Shanghai;P=4102",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Shanghai;P=4102"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Shanghai;P=4103",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Shanghai;P=4103"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Shanghai;P=4104",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Shanghai;P=4104"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Shanghai;P=4105",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Shanghai;P=4105"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Shanghai;P=4106",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Shanghai;P=4106"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Shanghai;P=4107",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Shanghai;P=4107"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Shanghai;P=4108",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Shanghai;P=4108"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Shanghai;P=txblr",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "output",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Shanghai;P=txblr"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "Shanghai;P=rxblr",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "Shanghai;P=rxblr"
+        }
+      ],
+      "admin-state": "unlocked",
+      "uuid": "Shanghai"
+    }
+  ],
+  "link": [
+    {
+      "node": [
+        "Sunnyvale",
+        "Lisbon"
+      ],
+      "lifecycle-state": "installed",
+      "name": "Sunnyvale;P=txlisbon:Lisbon;P=rxsunny",
+      "node-edge-point": [
+        "Sunnyvale;P=txlisbon",
+        "Lisbon;P=rxsunny"
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "admin-state": "unlocked",
+      "uuid": "Sunnyvale;P=txlisbon:Lisbon;P=rxsunny"
+    },
+    {
+      "node": [
+        "Bangalore",
+        "Lisbon"
+      ],
+      "lifecycle-state": "installed",
+      "name": "Bangalore;P=txlisbon:Lisbon;P=rxblr",
+      "node-edge-point": [
+        "Bangalore;P=txlisbon",
+        "Lisbon;P=rxblr"
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "admin-state": "unlocked",
+      "uuid": "Bangalore;P=txlisbon:Lisbon;P=rxblr"
+    },
+    {
+      "node": [
+        "Lisbon",
+        "Bangalore"
+      ],
+      "lifecycle-state": "installed",
+      "name": "Lisbon;P=txblr:Bangalore;P=rxlisbon",
+      "node-edge-point": [
+        "Lisbon;P=txblr",
+        "Bangalore;P=rxlisbon"
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "admin-state": "unlocked",
+      "uuid": "Lisbon;P=txblr:Bangalore;P=rxlisbon"
+    },
+    {
+      "node": [
+        "Lisbon",
+        "Sunnyvale"
+      ],
+      "lifecycle-state": "installed",
+      "name": "Lisbon;P=txsunny:Sunnyvale;P=rxlisbon",
+      "node-edge-point": [
+        "Lisbon;P=txsunny",
+        "Sunnyvale;P=rxlisbon"
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "admin-state": "unlocked",
+      "uuid": "Lisbon;P=txsunny:Sunnyvale;P=rxlisbon"
+    },
+    {
+      "node": [
+        "Bangalore",
+        "Shanghai"
+      ],
+      "lifecycle-state": "installed",
+      "name": "Bangalore;P=txshanghai:Shanghai;P=rxblr",
+      "node-edge-point": [
+        "Bangalore;P=txshanghai",
+        "Shanghai;P=rxblr"
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "admin-state": "unlocked",
+      "uuid": "Bangalore;P=txshanghai:Shanghai;P=rxblr"
+    },
+    {
+      "node": [
+        "Shanghai",
+        "Bangalore"
+      ],
+      "lifecycle-state": "installed",
+      "name": "Shanghai;P=txblr:Bangalore;P=rxshanghai",
+      "node-edge-point": [
+        "Shanghai;P=txblr",
+        "Bangalore;P=rxshanghai"
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "admin-state": "unlocked",
+      "uuid": "Shanghai;P=txblr:Bangalore;P=rxshanghai"
+    }
+
+  ],
+  "name": "facebook-poc-nov",
+  "uuid": "facebook-poc-nov"
+}

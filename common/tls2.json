@@ -1,0 +1,310 @@
+{
+  "node": [
+    {
+      "lifecycle-state": "installed",
+      "name": [
+        {
+          "value": "SFO",
+          "value-name": "name"
+        },
+        {
+          "value": "degree",
+          "value-name": "node-type"
+        }
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "owned-node-edge-point": [
+        {
+          "lifecycle-state": "installed",
+          "name": "SFO;P=4101",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "SFO;P=4101"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "SFO;P=4102",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "SFO;P=4102"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "SFO;P=4103",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "SFO;P=4103"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "SFO;P=4104",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "SFO;P=4104"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "SFO;P=4105",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "SFO;P=4105"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "SFO;P=4106",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "SFO;P=4106"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "SFO;P=4107",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "SFO;P=4107"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "SFO;P=4108",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "SFO;P=4108"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "SFO;P=4109",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "SFO;P=4109"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "SFO;P=txwdc",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "output",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "SFO;P=txwdc"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "SFO;P=rxwdc",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "SFO;P=rxwdc"
+        }
+      ],
+      "admin-state": "unlocked",
+      "uuid": "SFO"
+    },
+    {
+      "lifecycle-state": "installed",
+      "name": [
+        {
+          "value": "WDC",
+          "value-name": "name"
+        },
+        {
+          "value": "degree",
+          "value-name": "node-type"
+        }
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "owned-node-edge-point": [
+        {
+          "lifecycle-state": "installed",
+          "name": "WDC;P=4101",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "WDC;P=4101"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "WDC;P=4102",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "WDC;P=4102"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "WDC;P=4103",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "WDC;P=4103"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "WDC;P=4104",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "WDC;P=4104"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "WDC;P=4105",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "WDC;P=4105"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "WDC;P=4106",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "WDC;P=4106"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "WDC;P=4107",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "WDC;P=4107"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "WDC;P=4108",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",          
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "WDC;P=4108"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "WDC;P=txsfo",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "output",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "WDC;P=txsfo"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "WDC;P=rxsfo",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "WDC;P=rxsfo"
+        }
+      ],
+      "admin-state": "unlocked",
+      "uuid": "WDC"
+    }
+  ],
+  "link": [
+    {
+      "node": [
+        "SFO",
+        "WDC"
+      ],
+      "lifecycle-state": "installed",
+      "name": "SFO;P=txwdc:WDC;P=rxsfo",
+      "node-edge-point": [
+        "SFO;P=txwdc",
+        "WDC;P=rxsfo"
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "admin-state": "unlocked",
+      "uuid": "SFO;P=txwdc:WDC;P=rxsfo"
+    },
+    {
+      "node": [
+        "WDC",
+        "SFO"
+      ],
+      "lifecycle-state": "installed",
+      "name": "WDC;P=txsfo:SFO;P=rxwdc",
+      "node-edge-point": [
+        "WDC;P=txsfo",
+        "SFO;P=rxwdc"
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "admin-state": "unlocked",
+      "uuid": "WDC;P=txsfo:SFO;P=rxwdc"
+    }
+
+  ],
+  "name": "charter-poc-dec",
+  "uuid": "charter-poc-dec"
+}
