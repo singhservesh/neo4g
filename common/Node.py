@@ -46,3 +46,11 @@ class Degree(Node):
 
     def __str__(self):
         return super().__str__()
+
+
+
+class Relation:
+    def __init__(self, label, src , dest):
+        self.src = src
+        self.dst = dest
+        self.rel = label

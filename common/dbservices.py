@@ -1,19 +1,61 @@
 from neo4j import GraphDatabase
 
+from common.CommonStrings import CommonStrings as Strings
+from common.NodeEdgePoint import NodeEdgePoint as Nep
+from common.ConnectivityService import ConnectivityService as Service
+from common.ConnectivityService import DirectedService as DirectedService
+from common.Connection import *
 from common.Node import Roadm as Roadm
 from common.Topology import Topology as Topology
 from common.GraphVertex import GraphVertex as Vertex
-from common.Node import Degree as degree
-from common.Node import Ila as Ila
 from common.tls import TLS as TLS
 from common.CommonStrings import CommonStrings as Strings
 from common.NodeEdgePoint import NodeEdgePoint as Nep
 from common.Node import Node as node
-from neo4j import exceptions as neo4jexceptions
 from common.pcsmInfo import PcsmState as PcsmState
 from common.pcsmInfo import GPcsmInfo as GPcsmInfo
 from common.tlsstate import TlsState as TlsState
-from common.pcsmInfo import PcsmInfo as Pcsm
+from common.Node import Relation as NepRel
+from common.NodeEdgePoint import ConnectionEdgePoint as Cep
+from common.Link import Link
+from neo4j import exceptions as neo4jexceptions
+
+
+def RoadmNameFromDegree( degree):
+    rd = degree.split("=")
+    if len(rd) < 2:
+        raise Exception ("Degree name does not contain roadm id/name")
+    return rd[0]
+
+# return Roadm and NEP entries.
+def validateUserLink ( list):
+    roadm = []
+    degree= []
+    for item in list:
+        rd = item.split('-')
+        lth = len(rd)
+        if lth != 2:
+            raise Exception ('Bad Input')
+        for node in rd:
+            nodedegree = node.split(':')
+            lth = len(nodedegree)
+            if lth != 2:
+                raise Exception ('Bad Format for ' + node + 'in ' + rd )
+            for nd in nodedegree:
+                lth = len(nd)
+                if lth < 1:
+                    raise Exception('Bad Format for ' + node + 'in ' + rd)
+            roadm.append(nodedegree[0])
+            degree.append(nodedegree[1])
+    print(roadm)
+    print(degree)
+    lth = len(roadm)-2
+    while lth > 1:
+        if roadm[lth] != roadm[lth-1]:
+            raise Exception ('Link specification error')
+        lth -= 2
+    return roadm, degree
+
 
 class DbService:
 
@@ -246,9 +288,163 @@ class DbService:
             tx.commit()
 
     @staticmethod
-    def createService():
-        #print ("Service created.")
+    def updateVirtualNode( tx, roadm, degree):
         pass
+
+
+    @staticmethod
+    def createService():
+        service = Service('cs1')
+        smca = SmcA('scma')
+        nmca = NmcA('nmca')
+        smc = Smc('smc')
+        nmc = Nmc('nmc')
+
+        vtx:vertex = []
+        nepRel = []
+        smclink = ['R1:R1D1-R2:R2D1', 'R2:R2D2-R3:R3D2', 'R3:R3D1-R4:R4D1', 'R4:R4D2-R5:R5D1']
+        rdm,neps = validateUserLink(smclink)
+
+        start = Roadm(rdm[0])
+
+        startNep = 'R1:D1P1'
+        endNep = 'R5:D1P1'
+      
+    
+        startTxNep = Nep(startNep, startNep + 'tx', Strings.Y_TXDIRECTION)
+        startRxNep = Nep(startNep, startNep + 'rx', Strings.Y_RXDIRECTION)
+        startceptx = Cep(startNep, service.name + startNep + 'tx')
+        startceprx = Cep(startNep, service.name + startNep + 'rx')
+        cnrel1 = NepRel('mynep', startceptx, startTxNep)
+        cnrel2 = NepRel('mynep', startceprx, startRxNep)
+        nepRel.append(cnrel1)
+        nepRel.append(cnrel2)
+        rel1 = NepRel('nep', start, startTxNep)
+        rel2 = NepRel('nep', start, startRxNep)
+        nepRel.append(rel1)
+        nepRel.append(rel2)
+
+        vtx.append(startTxNep)
+        vtx.append(startRxNep)
+        vtx.append(startceptx)
+        vtx.append(startceprx)
+
+        endTxNep = Nep(endNep, endNep + 'tx', Strings.Y_TXDIRECTION)
+        endRxNep = Nep(endNep, endNep + 'rx', Strings.Y_RXDIRECTION)
+        endceptx = Cep(endNep, service.name + endNep + 'tx')
+        endceprx = Cep(endNep, service.name + endNep + 'rx')
+        cnrel1 = NepRel('mynep', endceptx, endTxNep)
+        cnrel2 = NepRel('mynep', endceprx, endRxNep)
+        nepRel.append(cnrel1)
+        nepRel.append(cnrel2)
+        vtx.append(endTxNep)
+        vtx.append(endRxNep)
+        vtx.append(endceptx)
+        vtx.append(endceprx)
+        linkId = 0;
+        vtx.append(start)
+        for i in range(1,len(rdm), 2):
+            endRdm = Roadm(rdm[i])
+            vtx.append(endRdm)
+
+            nepTx = Nep(neps[i - 1], neps[i - 1] + 'tx', Strings.Y_TXDIRECTION)
+            nepRx = Nep(neps[i - 1], neps[i - 1] + 'rx', Strings.Y_RXDIRECTION)
+            cepTx = Cep(neps[i - 1], service.name + neps[i - 1] + 'tx')
+            cepRx = Cep(neps[i - 1], service.name + neps[i - 1] + 'rx')
+            cnrel3 = NepRel('mynep', cepTx, nepTx)
+            cnrel4 = NepRel('mynep', cepRx, nepRx)
+            nepRel.append(cnrel3)
+            nepRel.append(cnrel4)
+            ccRel3 = NepRel('next', startceprx, cepTx)
+            ccRel4 = NepRel('next', cepRx, startceptx)
+            nepRel.append(ccRel3)
+            nepRel.append(ccRel4)
+
+            vtx.append(nepTx)
+            vtx.append(nepRx)
+            vtx.append(cepTx)
+            vtx.append(cepRx)
+
+            rel3 = NepRel('nep', start, nepTx)
+            rel4 = NepRel('nep', start, nepRx)
+
+
+            nepLocalTx = Nep(neps[i], neps[i] + 'tx', Strings.Y_TXDIRECTION)
+            nepLocalRx = Nep(neps[i], neps[i] + 'rx', Strings.Y_RXDIRECTION)
+            startceptx =  Cep( neps[i], service.name + neps[i] + 'tx')
+            startceprx =  Cep( neps[i], service.name + neps[i] + 'rx')
+            cnrel1 = NepRel('mynep', startceptx, nepLocalTx)
+            cnrel2 = NepRel('mynep', startceprx, nepLocalRx)
+            nepRel.append(cnrel1)
+            nepRel.append(cnrel2)
+
+            vtx.append(nepLocalTx)
+            vtx.append(nepLocalRx)
+            vtx.append(startceptx)
+            vtx.append(startceprx)
+
+            rel1 = NepRel('nep', endRdm, nepLocalTx)
+            rel2 = NepRel('nep', endRdm, nepLocalRx)
+
+            nepRel.append(rel1)
+            nepRel.append(rel2)
+            nepRel.append(rel3)
+            nepRel.append(rel4)
+            start = endRdm
+
+            link1 = Link( nepTx, nepLocalRx, smclink[linkId] +'start')
+            link2 = Link( nepLocalTx, nepTx, smclink[linkId] + 'end')
+            nepRel.append(NepRel('start', link1, nepTx) )
+            nepRel.append(NepRel('end', link1, nepLocalRx))
+            nepRel.append(NepRel('start', link2, nepLocalTx))
+            nepRel.append(NepRel('end', link2, nepRx))
+            vtx.append(link1)
+            vtx.append(link2)
+            linkId += 1
+
+
+        ccRel3 = NepRel('next', startceprx, endceptx)
+        ccRel4 = NepRel('next', endceprx, startceptx)
+        nepRel.append(ccRel3)
+        nepRel.append(ccRel4)
+
+        rel1 = NepRel('nep', start, endTxNep)
+        rel2 = NepRel('nep', start, endRxNep)
+        nepRel.append(rel1)
+        nepRel.append(rel2)
+
+
+        s1 = DirectedService('cs-1', 'R1:D1:SIP1')
+        s2 = DirectedService('cs-2', 'R5:D1:SIP1')
+        with DbService._dbdriver.session() as session:
+            tx = session.begin_transaction()
+
+            for vt in vtx:
+                DbService.addVertex(tx, vt)
+            for nep in nepRel:
+                DbService.addEdge( tx, nep.rel, nep.src, nep.dst)
+
+            DbService.addVertex(tx, service)
+            DbService.addVertex(tx, smca)
+            DbService.addVertex(tx, nmca)
+            DbService.addVertex(tx, smc)
+            DbService.addVertex(tx, nmc)
+            DbService.addVertex(tx, s1)
+            DbService.addVertex(tx, s2)
+            DbService.addEdge(tx, "smca", s1, smca)
+            DbService.addEdge(tx, "nmca", s1, nmca)
+            DbService.addEdge(tx, "smc", s1, smc)
+            DbService.addEdge(tx, "contains", smca, smc)
+            DbService.addEdge(tx, "contains", smca, nmca)
+            DbService.addEdge(tx, "contains", smc,  nmc)
+            DbService.addEdge(tx, "contains", nmca, nmc)
+            DbService.addEdge(tx, "contains", service, s1)
+            DbService.addEdge(tx, "contains", service, s2)
+
+            DbService.updateVirtualNode(tx, rdm, nep)
+            
+            tx.commit()
+
 
     @staticmethod
     def AddPcsmInfo(name: str, pcsmstate: PcsmState):
@@ -333,39 +529,37 @@ class DbService:
         # q_insert_degree =  DbService.createVertex( degree )
 
 
-        ingressState = TlsState( Strings.V_INGRESS, tls.name + "ingress")
-        egressState  = TlsState( Strings.V_EGRESS,  tls.name + "egress")
+        downstream  = TlsState( Strings.V_INGRESS, tls.name + "downstream")
+        egressState  = TlsState( Strings.V_EGRESS, tls.name + "upstream")
 
 
-        ingressRnc = GPcsmInfo("rnc", "1rnc" + degree.name)
-        ingressTlc = GPcsmInfo("tlc", "2tlc" + degree.name)
-        egressRnc =  GPcsmInfo("rnc", "3rnc" + degree.name)
-        egresstlc =  GPcsmInfo("tlc", "4tlc" + degree.name)
+        ingressRnc = GPcsmInfo("rnc", "1r" + degree.name)
+        ingressTlc = GPcsmInfo("tlc", "2t" + degree.name)
+        egressRnc  = GPcsmInfo("rnc", "3r" + degree.name)
+        egresstlc  = GPcsmInfo("tlc", "4t" + degree.name)
 
-        peerEgRnc = GPcsmInfo("rnc", "5rnc" + adjacent.name)
-        peerEgTlc = GPcsmInfo("tlc", "6tlc" + adjacent.name)
+        peerEgRnc = GPcsmInfo("rnc", "1r" + adjacent.name)
+        peerEgTlc = GPcsmInfo("tlc", "2t" + adjacent.name)
+        peerInRnc = GPcsmInfo("rnc", "3r" + adjacent.name)
+        peerInTlc = GPcsmInfo("tlc", "4t" + adjacent.name)
 
-        peerInRnc = GPcsmInfo("rnc", "7rnc" + adjacent.name)
-        peerInTlc = GPcsmInfo("tlc", "8tlc" + adjacent.name)
-
-        peerEgRnc.owner = 'peer'
-        peerEgTlc.owner = 'peer'
-        peerInRnc.owner = 'peer'
-        peerInTlc.owner = 'peer'
+        peerEgRnc.owner = peerEgTlc.owner = peerInRnc.owner = peerInTlc.owner = 'peer'
 
         with DbService._dbdriver.session() as session:
             tx = session.begin_transaction()
             DbService.addVertex(tx, tls)
             DbService.AddDegreeNode(adjacent, tx)
             DbService.addVertex(tx, degree)
-            DbService.addVertex(tx, ingressState)
+            DbService.addVertex(tx, downstream)
             DbService.addVertex(tx, egressState)
             DbService.AddDegreeNode(degree, tx)
 
             DbService.addEdge(tx, "degree", tls, degree)
-            DbService.addEdge(tx, "adjacent_node", tls, adjacent)
-            DbService.addEdge(tx, "ingress", tls, ingressState)
-            DbService.addEdge(tx, "egress", tls, egressState)
+            DbService.createEdge(tx, Strings.VR_DEGROADM, degree, Strings.VTYPE_ROADM, roadmNode)
+
+            DbService.addEdge(tx, "adjacent_degree", tls, adjacent)
+            DbService.addEdge(tx, "downstream", tls, downstream)
+            DbService.addEdge(tx, "upstream", tls, egressState)
 
 #TLC-RNC details
             DbService.addVertex(tx, ingressRnc)
@@ -377,8 +571,13 @@ class DbService:
             DbService.addVertex(tx, peerInRnc)
             DbService.addVertex(tx, peerInTlc)
 
+            rd_name = RoadmNameFromDegree(adjacent.name)
+            ad_roadm = Roadm(rd_name)
 
-            DbService.addEdge(tx, "nextpcsm", ingressState, ingressRnc)
+            DbService.addVertex(tx, ad_roadm)
+            DbService.addEdge(tx, Strings.VR_DEGROADM, adjacent, ad_roadm)
+
+            DbService.addEdge(tx, "nextpcsm", downstream, ingressRnc)
             DbService.addEdge(tx, "nextpcsm", ingressRnc, ingressTlc)
             DbService.addEdge(tx, 'nextpcsm', peerInTlc, peerInRnc)
 
@@ -394,8 +593,8 @@ class DbService:
             for ila in ilas:
                 DbService.AddIlaNode(ila, tx)
                 DbService.addEdge(tx, "ila", tls, ila)
-                ilaTlc = GPcsmInfo("tlc", "666tlc-" + ila.name)
-                peerIlaTlc = GPcsmInfo("tlc", "999tlc-" + ila.name)
+                ilaTlc = GPcsmInfo("tlc", "1." + ila.name)
+                peerIlaTlc = GPcsmInfo("tlc", "2." + ila.name)
                 peerIlaTlc.owner = 'peer'
                 DbService.addVertex(tx, ilaTlc)
                 DbService.addVertex(tx, peerIlaTlc)
@@ -409,4 +608,3 @@ class DbService:
             tx.commit()
 #s = dbService()
 #print (s.getInstance())
-#print (dbService.getInstance())

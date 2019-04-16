@@ -67,7 +67,8 @@ class JsonNep:
         for nepid in obj[Strings.Y_AGGR_NEP]:
                 aggregatedNodeEdgePoint.append(nepid)
 
-        nep = GraphNodeEdgePoint(obj[Strings.Y_NAME], obj[Strings.Y_PORT_DIRECTION])
+        nep = GraphNodeEdgePoint(obj[Strings.Y_NAME], obj[Strings.Y_UUID], obj[Strings.Y_PORT_DIRECTION])
+        #nep.uuid = obj[Strings.Y_UUID];
         attr = {}
         attr[Strings.G_PORT_DIRECTION]   = obj[Strings.Y_PORT_DIRECTION];
         #attr[Strings.Y_AGGR_NEP]         = aggregatedNodeEdgePoint,

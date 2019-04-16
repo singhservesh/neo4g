@@ -3,7 +3,8 @@ class CommonStrings:
     VTYPE_ROADM      = 'roadm'
     VTYPE_DEGREE     = 'degree'
     VTYPE_NEP        = 'nep'
-    VTYPE_VNODE       ='vnode'
+    VTYPE_CEP        = 'cep'
+    VTYPE_VNODE      = 'vnode'
     VTYPE_NE         = 'ne'
     VTYPE_ILA        = 'ila'
     VTYPE_LINK       = 'link'
@@ -54,3 +55,6 @@ class CommonStrings:
     G_PCSM_STATE  = 'pcsm_state'
     G_PCSM_TYPE   =   'pcsm_type' #"tlc/rnc"
     G_PCSM_OWNER  =   'owner'  # "self/peer"
+
+    VPROP_SRCSIP  = 'src_sip'
+    VR_DEGROADM   = 'myroadm'

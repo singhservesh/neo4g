@@ -56,5 +56,7 @@ class NmcA(MediaChannel):
         super().__init__(Strings.VTYPE_NMCA, name)
 
 
-
+class Sip(Vertex):
+    def __init__(self, name):
+        super().__init__(Strings.VTYPE_SIP, name)
 

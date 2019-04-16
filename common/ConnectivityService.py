@@ -40,5 +40,6 @@ class ConnectivityService (Vertex):
 
 
 class DirectedService ( Vertex):
-    def __init__(self, name):
+    def __init__(self, name, source_sip):
         super().__init__(Strings.VTYPE_DIRSERVICE, name)
+        self.setproperty(Strings.VPROP_SRCSIP, source_sip)

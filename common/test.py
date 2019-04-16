@@ -22,6 +22,33 @@ pcsmstate = PcsmState()
 pcsmstate.lbandState = 'BLOCKED'
 pcsmstate.cbandState = 'READY'
 
+def validateUserLink ( list):
+    roadm = []
+    degree= []
+    for item in list:
+        rd = item.split('-')
+        lth = len(rd)
+        if lth != 2:
+            raise Exception ('Bad Input')
+        for node in rd:
+            nodedegree = node.split(':')
+            lth = len(nodedegree)
+            if lth != 2:
+                raise Exception ('Bad Format for ' + node + 'in ' + rd )
+            for nd in nodedegree:
+                lth = len(nd)
+                if lth < 1:
+                    raise Exception('Bad Format for ' + node + 'in ' + rd)
+            roadm.append(nodedegree[0])
+            degree.append(nodedegree[1])
+    print(roadm)
+    print(degree)
+    lth = len(roadm)-2
+    while lth > 1:
+        if roadm[lth] != roadm[lth-1]:
+            raise Exception ('Link specification error')
+        lth -= 2
+
 
 def readfile(filename):
     f = open(filename, "r")
@@ -30,13 +57,15 @@ def readfile(filename):
 def createConnection ():
     pass
     service = Service('cs-1')
-    ds1 = DirectedService('cs-1')
-    ds2 = DirectedService('cs-2')
     smca = SmcA('scma')
     nmca = NmcA('nmca')
     smc = Smc('smc')
     nmc = Nmc('nmc')
-    UserLink = ['ROADM_1:D1:P1', 'ROADM:D2:P2' 'MY_ROADM:Sunnyvale:Sunnyvale;P=txlisbon']
+    userlink = []
+    validateUserLink(userlink)
+    s1 = DirectedService('cs-1', 'R1:D1:SIP1')
+    s2 = DirectedService('cs-1', 'R5:D1:SIP1')
+
 
 db.installInstance()
 print("Testing Json Decode")
@@ -48,7 +77,8 @@ m2 = json.loads(data2);
 S= JsonTopology.decodeme(m)
 S2= JsonTopology.decodeme(m2)
 
-Rdm = roadm('MY_ROADM')
+currentRoadName = 'R3'
+Rdm = roadm(currentRoadName)
 #time.sleep(200)
 repeat = 0
 
@@ -65,7 +95,7 @@ try:
             isDegreeAdded = True
         else:
             tls2.addAdjacentRoadm(node)
-    db.addTls(tls2, "MY_ROADM")
+    db.addTls(tls2, currentRoadName)
     db.AddTlsToRoadm(Rdm, tls2)
     db.createTlsLink(tls2, S2.linkList)
 
@@ -118,13 +148,14 @@ while repeat !=1:
     repeat=1
     #db.addTopology("firsttopo", "firstRoadm")
 
-    db.addTls(tls, "MY_ROADM")
+    db.addTls(tls, currentRoadName)
     db.AddTlsToRoadm(Rdm, tls)
     db.createTlsLink(tls, S.linkList)
     # for link in S.linkList:
         # pass
         # db.createNepLink(link.name, link.src, link.dst)
-
+    #createConnection()
+    db.createService()
     exit(7)
     #print ("Sleeping....")
     #time.sleep(5)
