@@ -57,4 +57,8 @@ class CommonStrings:
     G_PCSM_OWNER  =   'owner'  # "self/peer"
 
     VPROP_SRCSIP  = 'src_sip'
+
+    VPROP_LOWERFQ = 'lower-frequency'
+    VPROP_UPPERFQ = 'upper-frequency'
+
     VR_DEGROADM   = 'myroadm'

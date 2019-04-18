@@ -37,8 +37,31 @@ class Connection (vertex):
 
 
 class Smc(MediaChannel):
-    def __init__(self, name):
+    def __init__(self, name, lf="0", uf="0"):
         super().__init__(Strings.VTYPE_SMC, name)
+        self.setproperty(Strings.VPROP_UPPERFQ, uf)
+        self.setproperty(Strings.VPROP_LOWERFQ, lf)
+
+
+    @property
+    def lf(self):
+        return self.getproperty(Strings.VPROP_LOWERFQ)
+
+    @lf.setter
+    def lf(self,lf):
+        self.setproperty(Strings.VPROP_LOWERFQ, lf)
+
+    @property
+    def uf(self):
+        return self.getproperty(Strings.VPROP_UPPERFQ)
+
+    @uf.setter
+    def uf(self, uf):
+        self.setproperty(Strings.VPROP_UPPERFQ, uf)
+
+    def setluf(self, lf, uf):
+        self.setproperty(Strings.VPROP_UPPERFQ, uf)
+        self.setproperty(Strings.VPROP_LOWERFQ, lf)
 
 
 class SmcA(MediaChannel):
@@ -47,9 +70,30 @@ class SmcA(MediaChannel):
 
 
 class Nmc(MediaChannel):
-    def __init__(self, name):
+    def __init__(self, name, lf="0", uf="0"):
         super().__init__(Strings.VTYPE_NMC, name)
+        self.setproperty(Strings.VPROP_UPPERFQ, uf)
+        self.setproperty(Strings.VPROP_LOWERFQ, lf)
 
+    @property
+    def lf(self):
+        return self.getproperty(Strings.VPROP_LOWERFQ)
+
+    @lf.setter
+    def lf(self, lf):
+        self.setproperty(Strings.VPROP_LOWERFQ, lf)
+
+    @property
+    def uf(self):
+        return self.getproperty(Strings.VPROP_UPPERFQ)
+
+    @uf.setter
+    def uf(self, uf):
+        self.setproperty(Strings.VPROP_UPPERFQ, uf)
+
+    def setluf(self, lf, uf):
+        self.setproperty(Strings.VPROP_UPPERFQ, uf)
+        self.setproperty(Strings.VPROP_LOWERFQ, lf)
 
 class NmcA(MediaChannel):
     def __init__(self, name):

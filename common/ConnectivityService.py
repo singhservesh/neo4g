@@ -3,6 +3,22 @@ from common.Connection import Connection as Connection
 from common.CommonStrings import CommonStrings as Strings
 
 
+
+class ServiceRequest:
+    def __init__(self, name, uuid='name'):
+        self.name = name
+        self.uuid = uuid
+        self.smcs = []
+        self.nmcs = []
+        self.smca = None
+        self.nmcas = []
+        self.smcRel = []
+        self.nmcRel = []
+        self.tc  = []
+        self.a = None
+        self.z = None
+
+
 class ConnectivityService (Vertex):
     __src: str
     __dst: str #TODO can be dict

@@ -21,3 +21,4 @@ class ConnectionEdgePoint(Vertex):
     def __init__(self, name, uuid):
         super().__init__(Strings.VTYPE_CEP,name)
         self.uuid = uuid
+        #self.setproperty('smcid')

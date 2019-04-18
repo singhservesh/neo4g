@@ -1,0 +1,167 @@
+{
+  "node": [
+    {
+      "lifecycle-state": "installed",
+      "name": [
+        {
+          "value": "R3=D3",
+          "value-name": "name"
+        },
+        {
+          "value": "degree",
+          "value-name": "node-type"
+        }
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "owned-node-edge-point": [
+        {
+          "lifecycle-state": "installed",
+          "name": "R3=D2;P=4108",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "R3=D2;P=4108"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "R3=D2;P=4109",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "R3=D2;P=4109"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "R3D3",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "output",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "R3D3tx"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "R3D3",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "R3D3rx"
+        }
+      ],
+      "admin-state": "unlocked",
+      "uuid": "R3=D3"
+    },
+    {
+      "lifecycle-state": "installed",
+      "name": [
+        {
+          "value": "R2=D2",
+          "value-name": "name"
+        },
+        {
+          "value": "degree",
+          "value-name": "node-type"
+        }
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "owned-node-edge-point": [
+        {
+          "lifecycle-state": "installed",
+          "name": "R2=D2;P=4107",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "R2=D2;P=4107"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "R2=D2;P=4108",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "R2=D2;P=4108"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "R2D2",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "output",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "R2D2tx"
+        },
+        {
+          "lifecycle-state": "installed",
+          "name": "R2D2",
+          "layer-protocol-name": "L0",
+          "link-port-direction": "input",
+          "operational-state": "enabled",
+          "mapped-service-interface-point": [],
+          "aggregated-node-edge-point": [],
+          "admin-state": "unlocked",
+          "uuid": "R2D2rx"
+        }
+      ],
+      "admin-state": "unlocked",
+      "uuid": "R2=D2"
+    }
+  ],
+  "link": [
+    {
+      "node": [
+        "R3=D3",
+        "R2=D2"
+      ],
+      "lifecycle-state": "installed",
+      "name": "R3D3tx:R2D2rx",
+      "node-edge-point": [
+        "R3D3tx",
+        "R2D2rx"
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "admin-state": "unlocked",
+      "uuid": "R3D3tx:R2D2rx"
+    },
+    {
+      "node": [
+        "R2=D2",
+        "R3=D3"
+      ],
+      "lifecycle-state": "installed",
+      "name": "R2D2tx:R3D3rx",
+      "node-edge-point": [
+        "R2D2tx",
+        "R3D3rx"
+      ],
+      "layer-protocol-name": "L0",
+      "operational-state": "enabled",
+      "admin-state": "unlocked",
+      "uuid": "R2D2tx:R3D3rx"
+    }
+
+  ],
+  "name": "d3tls",
+  "uuid": "d3tls"
+}
